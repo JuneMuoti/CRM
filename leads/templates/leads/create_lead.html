@@ -1,3 +1,4 @@
+
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
@@ -16,45 +17,23 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-    <div class="card text-center">
-  <h5 class="card-header">Open Leads</h5>
+  
+<div class="card text-center">
+  <div class="card-header">
+    Create Lead
+  </div>
   <div class="card-body">
-    
-    <table class="table table-striped">
-  <thead>
-  
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Age</th>
-      <th scope="col">Source</th>
-      <th scope="col">Agent</th>
-    </tr>
-  
-  </thead>
-  <tbody>
-  {% for lead in leads%}
-  
-    <tr>
-  <th scope="row">{{lead.id}}</th>
-    
-      
-      <td>{{lead.first_name}}</td>
-      <td>{{lead.last_name}}</td>
-      <td>{{lead.age}}</td>
-      <td>{{lead.source}}</td>
-      <td>{{lead.agent}}<span style="float:right;"><a href="/leads/{{lead.pk}}/" class="btn btn-outline-info" role="button" aria-pressed="true" >View Lead</a></span></td>
-      {% endfor %}
-    </tr>
-    
- 
-  </tbody>
-</table>
- </div>
+    <h5 class="card-title">Lead Generation Form</h5>
+    <form method="post" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+   </form>
+  </div>
+  <div class="card-footer text-muted">
+   New
+  </div>
 </div>
-
-
 
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

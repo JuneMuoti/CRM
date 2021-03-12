@@ -17,12 +17,13 @@
     </head>
     <body>
     <div class="card text-center">
-  <h5 class="card-header">Open Leads</h5>
+  <h5 class="card-header"> Lead{{lead.id}} Details
+  <span style="float:right;"><a href="/leads/" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Leads</a></span>
+  </h5>
   <div class="card-body">
     
     <table class="table table-striped">
   <thead>
-  
     <tr>
       <th scope="col">#</th>
       <th scope="col">First Name</th>
@@ -31,23 +32,21 @@
       <th scope="col">Source</th>
       <th scope="col">Agent</th>
     </tr>
-  
   </thead>
   <tbody>
-  {% for lead in leads%}
-  
+
     <tr>
-  <th scope="row">{{lead.id}}</th>
+    <th scope="row">{{lead.id}}</th>
     
       
       <td>{{lead.first_name}}</td>
       <td>{{lead.last_name}}</td>
       <td>{{lead.age}}</td>
       <td>{{lead.source}}</td>
-      <td>{{lead.agent}}<span style="float:right;"><a href="/leads/{{lead.pk}}/" class="btn btn-outline-info" role="button" aria-pressed="true" >View Lead</a></span></td>
-      {% endfor %}
+      <td>{{lead.agent}}</td>
+     
     </tr>
-    
+  
  
   </tbody>
 </table>
