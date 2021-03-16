@@ -17,7 +17,8 @@
     </head>
     <body>
     <div class="card text-center">
-  <h5 class="card-header">Open Leads</h5>
+  <h5 class="card-header">Open Leads <span style="float:right;"><a href="{% url 'leads:lead-create' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Create a New Lead</a></span>
+
   <div class="card-body">
     
     <table class="table table-striped">
@@ -30,6 +31,7 @@
       <th scope="col">Age</th>
       <th scope="col">Source</th>
       <th scope="col">Agent</th>
+       {% comment %} <th scope="col">Date Created</th> {% endcomment %}
     </tr>
   
   </thead>
@@ -44,8 +46,9 @@
       <td>{{lead.last_name}}</td>
       <td>{{lead.age}}</td>
       <td>{{lead.source}}</td>
-      <td>{{lead.agent}}<span style="float:right;"><a href="/leads/{{lead.pk}}/" class="btn btn-outline-info" role="button" aria-pressed="true" >View Lead</a></span></td>
-      {% endfor %}
+      <td>{{lead.agent}}<span style="float:right;"><a href="{% url 'leads:lead-detail' lead.pk %}" class="btn btn-outline-info" role="button" aria-pressed="true" >View Lead</a></span></td>
+      
+    {% endfor %}
     </tr>
     
  

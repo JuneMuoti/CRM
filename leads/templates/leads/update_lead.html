@@ -17,9 +17,6 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-
-  
-
     {% if messages %}
 
     {% for message in messages %}
@@ -36,10 +33,10 @@
 {% endif %}
 <div class="card text-center">
   <div class="card-header">
-    Create <span style="float:right;"><a href="{% url 'leads:lead-list' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Leads</a></span>
+    Update Lead<span style="float:right;"><a href="{% url 'leads:lead-detail' lead.pk %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Lead {{lead.pk}}</a></span>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Lead Generation Form</h5>
+    <h5 class="card-title">Lead Update Form</h5>
     <form method="post" >
     {% csrf_token %}
     {{form.as_p}}

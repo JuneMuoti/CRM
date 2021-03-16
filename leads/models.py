@@ -19,6 +19,7 @@ class Lead(models.Model):
     profile_picture=models.ImageField(null=True, blank=True)
     special_file=models.FileField(null=True,blank=True)
     agent=models.ForeignKey("Agent", on_delete=models.SET_NULL,null=True)
+   
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     

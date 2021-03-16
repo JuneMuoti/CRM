@@ -18,7 +18,7 @@
     <body>
     <div class="card text-center">
   <h5 class="card-header"> Lead{{lead.id}} Details
-  <span style="float:right;"><a href="/leads/" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Leads</a></span>
+  <span style="float:right;"><a href="{% url 'leads:lead-list' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Leads</a></span>
   </h5>
   <div class="card-body">
     
@@ -43,7 +43,9 @@
       <td>{{lead.last_name}}</td>
       <td>{{lead.age}}</td>
       <td>{{lead.source}}</td>
-      <td>{{lead.agent}}</td>
+      <td>{{lead.agent}}<span style="float:right;"><a href="{% url 'leads:lead-update' lead.pk %}" class="btn btn-outline-info" role="button" aria-pressed="true" >Update Lead</a></span>
+      <span style="float:right;margin-right:10px;"><a href="{% url 'leads:lead-delete' lead.pk %}" class="btn btn-outline-danger" role="button" aria-pressed="true" >Delete Lead</a></span>
+      </td>
      
     </tr>
   
