@@ -1,9 +1,48 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse
 from .models import Lead,Agent
 from .forms import LeadForm,LeadModelForm
 from django.contrib import messages
+from django.views.generic import ListView,TemplateView,DetailView,CreateView,UpdateView,DeleteView
 # Create your views here.
+class HomePageView(TemplateView):
+    template_name="home_page.html"
+
+class LeadListView(ListView):
+    queryset=Lead.objects.all()
+    context_object_name="leads"
+    template_name = 'leads/lead_list.html'
+class LeadDetailView(DetailView):
+    queryset=Lead.objects.all()
+    context_object_name="lead"
+    template_name="leads/lead_detail.html"
+
+class LeadCreateView(CreateView):
+    template_name="leads/create_lead.html"
+    form_class=LeadModelForm
+
+    def get_success_url(self):
+        return reverse("leads:lead-list")
+
+
+
+class LeadUpdateView(UpdateView):
+    template_name="leads/update_lead.html"
+    form_class=LeadModelForm
+    queryset=Lead.objects.all()
+class LeadDeleteView(DeleteView):
+    template_name="leads/delete_lead.html"
+    queryset=Lead.objects.all()
+    def get_success_url(self):
+        return reverse("leads:lead-list")
+
+
+
+
+def home_page(request):
+    return render(request,"home_page.html")
+
+
 
 def lead_list(request):
     leads=Lead.objects.all()
@@ -11,7 +50,7 @@ def lead_list(request):
        
        "leads":leads
     }
-    return render(request,"leads/home_page.html",context)
+    return render(request,"leads/lead_list.html",context)
 
 
 
@@ -90,3 +129,5 @@ def lead_delete(request,pk):
 #         "lead":lead
 #     }
 #     return render(request,"leads/update_lead.html",context)
+
+
