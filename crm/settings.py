@@ -121,4 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_FILES_DIRS=[
+    BASE_DIR / "static"
+]
+STATIC_ROOT="static_root"
 AUTH_USER_MODEL='leads.User'
