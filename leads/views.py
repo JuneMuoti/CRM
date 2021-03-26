@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse
 from .models import Lead,Agent
@@ -23,6 +24,18 @@ class LeadCreateView(CreateView):
 
     def get_success_url(self):
         return reverse("leads:lead-list")
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        send_mail(
+            subject="A lead has been generated",
+            message="Go to site to view new lead",
+            from_email="june.muoti@gmail.com",
+            recipient_list=["june.muoti@gmail.com"]
+        )
+        
+        return super(LeadCreateView,self).form_valid(form)
 
 
 
