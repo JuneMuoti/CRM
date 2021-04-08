@@ -135,5 +135,8 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL='/leads'
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f37ad74... Use sendgrid to Add send mail functionality after lead has been created
+=======
+>>>>>>> e4db506047ea814913aa2ba9c4d9621f5fd38ae1
