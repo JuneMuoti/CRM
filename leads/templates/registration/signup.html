@@ -1,0 +1,12 @@
+{% extends 'leads/base.html' %}
+
+
+{% block content %}
+<div class="card text-center">
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">SignUp</button>
+</form>
+</div>
+{% endblock content %}

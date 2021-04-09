@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -126,7 +126,8 @@ STATIC_FILES_DIRS=[
 ]
 STATIC_ROOT="static_root"
 AUTH_USER_MODEL='leads.User'
-<<<<<<< HEAD
+
+# sendgrid API settings
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.sendgrid.net'
@@ -134,9 +135,7 @@ EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Login page redirect URL settings
 LOGIN_REDIRECT_URL='/leads'
-<<<<<<< HEAD
-=======
->>>>>>> parent of f37ad74... Use sendgrid to Add send mail functionality after lead has been created
-=======
->>>>>>> e4db506047ea814913aa2ba9c4d9621f5fd38ae1
+
