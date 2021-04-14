@@ -4,9 +4,22 @@ from .models import Lead,Agent
 from .forms import LeadForm,LeadModelForm,CustomUserForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView,TemplateView,DetailView,CreateView,UpdateView,DeleteView
 # Create your views here.
 
+# In programming, a mixin is a class that provides functionality to be inherited, but isn’t meant for  instantiation on its own. 
+#In programming languages with multiple inheritance, mixins can be used to add enhanced functionality and behavior to classes.
+# We can use the power of mixins to compose our own view classes for our Django apps.
+# When using mixins to compose our own view classes, we recommend these rules of inheritance provided by Kenneth Love.
+#  Ļe rules follow Python’s method resolution order, which in the most
+# simplistic deŀnition possible, proceeds from left to right:
+# .
+# 1 Ļe base view classes provided by Django always go to the right.
+# .
+# 2 Mixins go to the left of the base view.
+# .
+# 3 Mixins should inherit from Python’s built-in object type.
 
 class SignUpView(CreateView):
     template_name="registration/signup.html"
@@ -19,16 +32,16 @@ class SignUpView(CreateView):
 class HomePageView(TemplateView):
     template_name="home_page.html"
 
-class LeadListView(ListView):
+class LeadListView(LoginRequiredMixin,ListView):
     queryset=Lead.objects.all()
     context_object_name="leads"
     template_name = 'leads/lead_list.html'
-class LeadDetailView(DetailView):
+class LeadDetailView(LoginRequiredMixin,DetailView):
     queryset=Lead.objects.all()
     context_object_name="lead"
     template_name="leads/lead_detail.html"
 
-class LeadCreateView(CreateView):
+class LeadCreateView(LoginRequiredMixin,CreateView):
     template_name="leads/create_lead.html"
     form_class=LeadModelForm
 
@@ -37,7 +50,7 @@ class LeadCreateView(CreateView):
 
 
 
-class LeadUpdateView(UpdateView):
+class LeadUpdateView(LoginRequiredMixin,UpdateView):
     template_name="leads/update_lead.html"
     form_class=LeadModelForm
     queryset=Lead.objects.all()

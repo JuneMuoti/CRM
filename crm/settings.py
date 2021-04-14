@@ -138,4 +138,5 @@ EMAIL_USE_TLS = True
 
 # Login page redirect URL settings
 LOGIN_REDIRECT_URL='/leads'
+LOGIN_URL='/login'
 
