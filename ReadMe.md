@@ -1,5 +1,6 @@
 # DJ CRM
-## The Best Django CRM
+# Modern,responsive user interface for ultimate user experience
+
 
 
 
@@ -58,7 +59,7 @@ DJ CRM requires [Python3.8](https://python.org/) and [Django3.1](https://django.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd dj-crm
+cd CRM
 pip install -r requirements.txt
 ```
 
@@ -80,8 +81,8 @@ Instructions on how to use them are linked below.
 
 | Plugin | README |
 | ------ | ------ |
-|SendGrid | [plugins/sendgrid/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
+|SendGrid | [https://sendgrid.com/] |
+| GitHub | [https://github.com/] |
 
 
 
