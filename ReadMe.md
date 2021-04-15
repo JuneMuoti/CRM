@@ -81,8 +81,8 @@ Instructions on how to use them are linked below.
 
 | Plugin | README |
 | ------ | ------ |
-|SendGrid | [https://sendgrid.com/] |
-| GitHub | [https://github.com/] |
+|SendGrid | [sendgrid](https://sendgrid.com/)|
+| GitHub | [github](https://github.com/) |
 
 
 
