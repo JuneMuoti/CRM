@@ -1,0 +1,36 @@
+{% extends 'leads/base.html' %}
+
+  {% block content %}
+
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert">
+ {{message}}
+</div>
+  
+
+    {% endfor %}
+    {% else %}
+ <div>
+
+</div>
+{% endif %}
+<div class="card text-center">
+  <div class="card-header">
+    Create <span style="float:right;"><a href="{% url 'agents:agents-list' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Back To Agent</a></span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Agent Creation Form</h5>
+    <form method="post" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+   </form>
+  </div>
+  <div class="card-footer text-muted">
+   New
+  </div>
+</div>
+
+ {% endblock content %}     

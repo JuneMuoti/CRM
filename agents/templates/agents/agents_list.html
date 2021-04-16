@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="card text-center">
-  <h5 class="card-header">All Agents <span style="float:right;"><a href="{% url 'leads:lead-create' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Create a New Agent</a></span>
+  <h5 class="card-header">All Agents <span style="float:right;"><a href="{% url 'agents:agent-create' %}" class="btn btn-outline-primary" role="button" aria-pressed="true" >Create a New Agent</a></span>
 
   <div class="card-body">
     
@@ -12,8 +12,9 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Agent Name</th>
+       <th scope="col">Organization</th>
       {% comment %} <th scope="col">Last Name</th>
-      <th scope="col">Age</th>
+     
       <th scope="col">Source</th>
       <th scope="col">Agent</th> {% endcomment %}
        {% comment %} <th scope="col">Date Created</th> {% endcomment %}
@@ -28,6 +29,7 @@
     
       
       <td>{{agent.user.username}}</td>
+      <td>{{agent.organization}}</td>
       {% comment %} <td>{{lead.last_name}}</td>
       <td>{{lead.age}}</td>
       <td>{{lead.source}}</td>
